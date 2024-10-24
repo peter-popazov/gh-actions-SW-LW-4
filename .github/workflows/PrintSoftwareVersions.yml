@@ -17,7 +17,7 @@ jobs:
       - name: Print MacBook information
         run: |
           echo "MacBook Pro M3 Pro"
-          "macOS 15 Sequoia"
+          echo "macOS 15 Sequoia"
 
       - name: Print Firefox version
         run: |
