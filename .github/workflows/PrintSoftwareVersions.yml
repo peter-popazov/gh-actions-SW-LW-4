@@ -29,9 +29,9 @@ jobs:
       run: |
         npx create-react-app --version
 
-    - name: Install Firefox
-      run: choco install firefox -y
+    - name: Install Google Chrome
+      run: choco install googlechrome -y
 
-    - name: Print Firefox version
+    - name: Print Google Chrome version
       run: |
-        "C:\Program Files\Mozilla Firefox\firefox.exe" --version
+        "C:\Program Files\Google\Chrome\Application\chrome.exe" --version
