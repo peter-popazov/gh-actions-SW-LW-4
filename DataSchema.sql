@@ -5,7 +5,8 @@ CREATE TABLE users (
     email_address VARCHAR(100) NOT NULL CHECK (
         email_address ~ '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$'
     ),
-    user_role VARCHAR(50) CHECK (user_role IN ('User', 'Admin', 'LightingSpecialist'))
+    user_role VARCHAR(50) CHECK (
+    user_role IN ('User', 'Admin', 'LightingSpecialist'))
 );
 
 -- Таблиця фільтрів
