@@ -34,4 +34,4 @@ jobs:
 
     - name: Print Google Chrome version
       run: |
-        "C:\Program Files\Google\Chrome\Application\chrome.exe" --version
+        & "C:\Program Files\Google\Chrome\Application\chrome.exe" --version
