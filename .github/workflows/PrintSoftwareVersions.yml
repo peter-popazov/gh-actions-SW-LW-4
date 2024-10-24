@@ -1,35 +1,50 @@
 name: Print Software Versions
 
-on:
+on: 
   push:
     branches:
       - main
   workflow_dispatch:
 
 jobs:
-  PrintSoftwareVersions:
+  printSoftwareVersions:
+    runs-on: windows-latest
+    steps:
+    - name: Checkout the repository
+      uses: actions/checkout@v2
+
+    - name: Print Windows version
+      run: |
+        systeminfo | findstr /B /C:"OS Name" /C:"OS Version"
+        
+    - name: Print Java version
+      run: java -version
+
+    - name: Install Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+
+    - name: Print ReactJS version
+      run: |
+        npx create-react-app --version
+
+    - name: Print Firefox version (Windows)
+      run: |
+        choco install firefox --version
+        firefox --version
+
+  printDBMSVersion:
     runs-on: ubuntu-latest
     steps:
-      # - name: Print MacBook information
-      #   run: |
-      #     echo "MacBook Pro: Custom Configuration"
-      #     uname -a
-      #     echo "Machintosh: macOS Custom Version"
-      #     sw_vers || echo "macOS version not available"
+    - name: Checkout the repository
+      uses: actions/checkout@v2
 
-      - name: Print Firefox version
-        run: |
-          echo "Firefox version:"
-          echo "Firefox 54.0.1"
+    - name: Print Ubuntu version
+      run: lsb_release -a
 
-      - name: Print ReactJS version
-        run: |
-          echo "ReactJS version:"
-          echo "ReactJS v.18"
-
-  PrintDBMSVersions:
-    runs-on: ubuntu-latest
-    needs: [PrintSoftwareVersions]
-    steps:
-      - name: Print PostgreSQL version
-        run: psql --version
+    - name: Print PostgreSQL version
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y postgresql
+        psql --version
