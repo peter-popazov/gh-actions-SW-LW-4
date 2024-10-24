@@ -29,22 +29,9 @@ jobs:
       run: |
         npx create-react-app --version
 
-    - name: Print Firefox version (Windows)
+    - name: Install Firefox
+      run: choco install firefox -y
+
+    - name: Print Firefox version
       run: |
-        choco install firefox --version
-        firefox --version
-
-  printDBMSVersion:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout the repository
-      uses: actions/checkout@v2
-
-    - name: Print Ubuntu version
-      run: lsb_release -a
-
-    - name: Print PostgreSQL version
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y postgresql
-        psql --version
+        "C:\Program Files\Mozilla Firefox\firefox.exe" --version
