@@ -1,4 +1,4 @@
--- Таблиця користувачів
+-- Таблиця користувачів 
 CREATE TABLE users (
     user_id INT PRIMARY KEY,
     user_name VARCHAR(100) NOT NULL CHECK (user_name ~ '^[A-Za-z]+$'),
