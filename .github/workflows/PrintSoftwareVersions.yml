@@ -7,17 +7,15 @@ on:
   workflow_dispatch:
 
 jobs:
-  print_versions:
+  PrintSoftwareVersions:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      - name: Print MacBook information
-        run: |
-          echo "MacBook Pro M3 Pro"
-          echo "macOS 15 Sequoia"
+      # - name: Print MacBook information
+      #   run: |
+      #     echo "MacBook Pro: Custom Configuration"
+      #     uname -a
+      #     echo "Machintosh: macOS Custom Version"
+      #     sw_vers || echo "macOS version not available"
 
       - name: Print Firefox version
         run: |
@@ -29,13 +27,9 @@ jobs:
           echo "ReactJS version:"
           echo "ReactJS v.18"
 
-      - name: Print Linux Ubuntu version (Server 1)
-        run: |
-          echo "Linux Ubuntu (Server 1) version:"
-          echo "Linux Ubuntu 17.4"
-
-      - name: Print ApplicationServer.jar info
-        run: |
-          echo "ApplicationServer.jar version:"
-          echo "Java version 17"
-
+  PrintDBMSVersions:
+    runs-on: ubuntu-latest
+    needs: [PrintSoftwareVersions]
+    steps:
+      - name: Print PostgreSQL version
+        run: psql --version
