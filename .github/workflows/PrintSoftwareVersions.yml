@@ -35,3 +35,18 @@ jobs:
     - name: Print Google Chrome version
       run: |
         & "C:\Program Files\Google\Chrome\Application\chrome.exe" --version
+
+  printDBMSVersion:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout the repository
+      uses: actions/checkout@v2
+
+    - name: Print Ubuntu version
+      run: lsb_release -a
+
+    - name: Print PostgreSQL version
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y postgresql
+        psql --version
