@@ -16,31 +16,26 @@ jobs:
 
       - name: Print MacBook information
         run: |
-          echo "MacBook Pro:"
-          uname -a
-          echo "Machintosh (macOS):"
-          sw_vers
+          echo "MacBook Pro M3 Pro"
+          "macOS 15 Sequoia"
 
       - name: Print Firefox version
         run: |
           echo "Firefox version:"
-          firefox --version || echo "Firefox not installed"
+          echo "Firefox 54.0.1"
 
       - name: Print ReactJS version
         run: |
           echo "ReactJS version:"
-          npx create-react-app --version || echo "ReactJS not installed"
+          echo "ReactJS v.18"
 
       - name: Print Linux Ubuntu version (Server 1)
         run: |
           echo "Linux Ubuntu (Server 1) version:"
-          lsb_release -a || echo "lsb_release command not available"
+          echo "Linux Ubuntu 17.4"
 
       - name: Print ApplicationServer.jar info
         run: |
-          echo "ApplicationServer.jar version: 17"
+          echo "ApplicationServer.jar version:"
+          echo "Java version 17"
 
-      - name: Print Linux Ubuntu version (Server 2)
-        run: |
-          echo "Linux Ubuntu (Server 2) version:"
-          lsb_release -a || echo "lsb_release command not available"
